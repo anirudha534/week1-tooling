@@ -1,5 +1,5 @@
 import pytest
-from week1_tooling import add, greet, parse_numbers
+from week1_tooling import add, greet, parse_numbers, divide
 
 @pytest.mark.parametrize(
 "name, expected",
@@ -30,3 +30,18 @@ def test_parse_numbers_skips_junk(messy_lines: list[str]) -> None:
 def test_parse_numbers_all_junk() -> None:
     assert parse_numbers(["abc", "hello"]) == []
 
+def test_parse_numbers_empty() -> None:
+    assert parse_numbers([]) == []
+
+
+@pytest.mark.parametrize("lines, expected", 
+                         [(["1"], [1]),
+                          ([" 7 "], [7]),
+                          (["1e3"], [1000])],)
+
+def test_parse_numbers_cases(lines: list[str], expected: list[float]) -> None:
+    assert parse_numbers(lines) == expected
+
+def test_divide_by_zero() -> None:
+    with pytest.raises(ZeroDivisionError):
+        divide(1,0)

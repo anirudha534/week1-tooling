@@ -19,6 +19,11 @@ def parse_numbers(lines: list[str]) -> list[float]:
             continue
     return numbers
 
+def divide(a: float, b: float) -> float:
+    return a/b
+
+
 def main() -> None:
     print("Hello from week1-tooling!")
     print(add(2, 3))
+
