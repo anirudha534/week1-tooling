@@ -7,7 +7,9 @@ authors = [
     { name = "Anirudha Gouravarajula", email = "anirudha534@gmail.com" }
 ]
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "httpx>=0.28.1",
+]
 
 [project.scripts]
 week1-tooling = "week1_tooling:main"
